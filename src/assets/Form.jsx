@@ -41,7 +41,18 @@ function SurveyForm() {
     }
   };
 
+ // const validate = () => {
+  //   const currentKey = questions[currentQuestion].id;
+  //   if (!formData[currentKey]) {
+  //     alert("Please answer this question before proceeding!");
+  //     return false;
+  //   }
+  //   return true;
+  // };
+  
   const nextQuestion = () => {
+    // if (!validate()) return; 
+  
     if (currentQuestion < questions.length - 1) {
       setDirection(1);
       setCurrentQuestion(currentQuestion + 1);
@@ -54,30 +65,24 @@ function SurveyForm() {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
-
-
-const validate = () => {
-  if (!formData.say || !formData.think || !formData.feel || !formData.improve || !formData.occupation) {
-    alert("Please fill in all fields before submitting!");
-    return false;
-  }
-  return true;
-};
   
   const handleSubmit = (e) => {
     e.preventDefault();
 
-   if (!validate()) return;
-    
+    if (Object.values(formData).some((value) => value.trim() === "")) {
+      alert("Please fill in all fields before submitting!");
+      return;
+    }
+  
     setLoading(true);
-
+  
     const form = new FormData();
     Object.entries(formData).forEach(([key, value]) => form.append(key, value));
-
+  
     fetch(scriptURL, { method: "POST", body: form })
       .then((response) => {
         if (response.ok) {
-          setMessage("Thank for your feedback😊");
+          setMessage("Thank you for your feedback!");
           setTimeout(() => setMessage(""), 2000);
           setFormData({ say: "", think: "", feel: "", improve: "", occupation: "" });
           setCurrentQuestion(0);
