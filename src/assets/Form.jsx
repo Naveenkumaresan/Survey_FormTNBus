@@ -55,8 +55,20 @@ function SurveyForm() {
     }
   };
 
+
+const validate = () => {
+  if (!formData.say || !formData.think || !formData.feel || !formData.improve || !formData.occupation) {
+    alert("Please fill in all fields before submitting!");
+    return false;
+  }
+  return true;
+};
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+
+   if (!validate()) return;
+    
     setLoading(true);
 
     const form = new FormData();
