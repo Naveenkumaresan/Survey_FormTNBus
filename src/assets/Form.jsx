@@ -44,7 +44,7 @@ function SurveyForm() {
  const validate = () => {
     const currentKey = questions[currentQuestion].id;
     if (!formData[currentKey]) {
-      alert("Please answer this question before proceeding!");
+      alert("Please answer this question before proceeding!😒");
       return false;
     }
     return true;
