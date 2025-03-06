@@ -70,7 +70,7 @@ function SurveyForm() {
     e.preventDefault();
 
     if (Object.values(formData).some((value) => value.trim() === "")) {
-      alert("Please fill in all fields before submitting!");
+      alert("Please fill in all fields before submitting!😒");
       return;
     }
   
@@ -82,7 +82,7 @@ function SurveyForm() {
     fetch(scriptURL, { method: "POST", body: form })
       .then((response) => {
         if (response.ok) {
-          setMessage("Thank you for your feedback!");
+          setMessage("Thank you for your feedback!😊");
           setTimeout(() => setMessage(""), 2000);
           setFormData({ say: "", think: "", feel: "", improve: "", occupation: "" });
           setCurrentQuestion(0);
