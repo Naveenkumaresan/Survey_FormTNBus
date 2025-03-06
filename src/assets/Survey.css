@@ -1,0 +1,26 @@
+html, body {
+    background-color: #C7D9DD;
+  }
+  
+.overall{
+    background-color: #D5E5D5;
+}
+
+label{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+  textarea.form-control {
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  textarea.form-control:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+
+  .msg{
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  
