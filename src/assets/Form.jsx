@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Survey.css"; // Custom styles
+import "./Survey.css";
 
 function SurveyForm() {
   const scriptURL = "https://script.google.com/macros/s/AKfycbxj5Ri4OTMWxFpbM7t_SzwDvHtO55vvcLENyDXKyBq57Fb7qshjHp8yT9yVMQtQxL-Raw/exec"
@@ -41,17 +41,17 @@ function SurveyForm() {
     }
   };
 
- // const validate = () => {
-  //   const currentKey = questions[currentQuestion].id;
-  //   if (!formData[currentKey]) {
-  //     alert("Please answer this question before proceeding!");
-  //     return false;
-  //   }
-  //   return true;
-  // };
+ const validate = () => {
+    const currentKey = questions[currentQuestion].id;
+    if (!formData[currentKey]) {
+      alert("Please answer this question before proceeding!");
+      return false;
+    }
+    return true;
+  };
   
   const nextQuestion = () => {
-    // if (!validate()) return; 
+    if (!validate()) return; 
   
     if (currentQuestion < questions.length - 1) {
       setDirection(1);
@@ -69,10 +69,10 @@ function SurveyForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (Object.values(formData).some((value) => value.trim() === "")) {
-      alert("Please fill in all fields before submitting!😒");
-      return;
-    }
+    // if (Object.values(formData).some((value) => value.trim() === "")) {
+    //   alert("Please fill in all fields before submitting!😒");
+    //   return;
+    // }
   
     setLoading(true);
   
